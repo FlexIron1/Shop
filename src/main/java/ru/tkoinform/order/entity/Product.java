@@ -15,12 +15,12 @@ public class Product {
     @NotNull
     private String productName;
     @NotNull
-    private Long price;
+    private Double price;
 
     public Product() {
     }
 
-    public Product(@NotNull String productName, @NotNull Long price) {
+    public Product(@NotNull String productName, @NotNull Double price) {
         this.productName = productName;
         this.price = price;
 
@@ -42,12 +42,11 @@ public class Product {
         productName = productName;
     }
 
-    public Long getPrice() {
+    public Double getPrice() {
         return price;
     }
 
-    public void setPrice(Long price) {
+    public void setPrice( Double price ) {
         this.price = price;
     }
-
 }

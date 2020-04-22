@@ -1,2 +1,2 @@
-insert into product(id, price, product_name)
-values (1, 1000, 'Just')
+-- insert into product(price, product_name)
+-- values ( 1000, 'Just')

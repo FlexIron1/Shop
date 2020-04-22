@@ -27,7 +27,7 @@ public class AddProductController {
     }
 
     @PostMapping
-    public String addProduct(@RequestParam String productName, @RequestParam Long price) {
+    public String addProduct(@RequestParam String productName, @RequestParam Double price) {
         Product product = new Product(productName, price);
         productRepository.save(product);
         return "addProductForm";

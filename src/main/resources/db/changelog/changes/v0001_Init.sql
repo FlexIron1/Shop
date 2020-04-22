@@ -1,32 +1,31 @@
-create sequence hibernate_sequence start 1 increment 1;
-create table ord
+CREATE TABLE ord
 (
-    id           int8         not null,
-    order_number varchar(255) not null,
-    product_name varchar(255),
-    user_name    varchar(255),
+    id           BIGSERIAL NOT NULL,
+    order_number VARCHAR(255) NOT NULL,
+    product_name VARCHAR(255),
+    user_name    VARCHAR(255),
+    PRIMARY KEY (id)
+);
+CREATE TABLE product
+(
+    id           BIGSERIAL NOT NULL,
+    price        REAL         NOT NULL,
+    product_name VARCHAR(255) NOT NULL,
+    PRIMARY KEY (id)
+);
+CREATE TABLE user_role
+(
+    user_id BIGSERIAL NOT NULL,
+    roles   VARCHAR(255)
+);
+CREATE TABLE usr
+(
+    id       BIGSERIAL NOT NULL,
+    active   BOOLEAN NOT NULL DEFAULT (true),
+    password VARCHAR(255),
+    username VARCHAR(255),
     primary key (id)
 );
-create table product
-(
-    id           int8         not null,
-    price        int8         not null,
-    product_name varchar(255) not null,
-    primary key (id)
-);
-create table user_role
-(
-    user_id int8 not null,
-    roles   varchar(255)
-);
-create table usr
-(
-    id       int8    not null,
-    active   boolean not null,
-    password varchar(255),
-    username varchar(255),
-    primary key (id)
-);
-alter table user_role
-    add constraint user_role_user_fk
-        foreign key (user_id) references usr;
+ALTER TABLE user_role
+    ADD CONSTRAINT user_role_user_fk
+        FOREIGN KEY (user_id) REFERENCES usr;
