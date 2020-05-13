@@ -23,7 +23,7 @@ public class ProductController {
     public String getProductList(Model model) {
         List<Product> products = productRepository.findAll();
         model.addAttribute("products", products);
-        return "productList";
+        return "productList.html";
     }
 
 

@@ -1,0 +1,87 @@
+<!--<#&#45;&#45;<#import "parts/common.ftlh" as p>&ndash;&gt;-->
+<!--<#&#45;&#45;<@p.page>&ndash;&gt;-->
+<!Doctype html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8" />
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-smart-table/2.1.8/smart-table.min.js"></script>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans" />
+<script src="../static/js/table.js"></script>
+</head>
+<body>
+<div class="container">
+    <h1>Listing Example with smart-table and AngularJS</h1>
+    <div ng-show="loading"><h3>Loading...</h3></div>
+    <table st-table="display_records"  st-safe-src="employees" class="table table-striped">
+        <thead>
+        <tr>
+            <th>Profile</th>
+            <th width="100px">Name</th>
+            <th st-sort="salary">Salary</th>
+            <th>Age</th>
+            <th>Action</th>
+        </tr>
+        <tr>
+            <th colspan="5">
+                <input st-search placeholder="global search" class="input-sm form-control" type="search"/>
+            </th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr st-select-row="row" st-select-mode="multiple" ng-repeat="row in display_records">
+            <td><img class="img-thumbnail img-responsive" alt="image" src="" style="width: 50px; height: 50px;"/></td>
+            <td>{{row.employee_name}}</td>
+            <td>{{row.employee_salary}}</td>
+            <td>{{row.employee_age}}</td>
+            <td>
+                <a type="button" class="btn btn-sm btn-info">
+                    <i class="glyphicon glyphicon-eye-open">
+                    </i>
+                </a>
+            </td>
+        </tr>
+        </tbody>
+        <tfoot>
+        <tr>
+            <td colspan="5" class="text-center">
+                <div st-pagination="" st-items-by-page="itemsByPage"></div>
+            </td>
+        </tr>
+        </tfoot>
+    </table>
+</div>
+</body>
+</html>
+<!--<#&#45;&#45;    <form action="/orderList" method="post">&ndash;&gt;-->
+<!--<#&#45;&#45;        <div class="alert alert-primary" role="alert">&ndash;&gt;-->
+<!--<#&#45;&#45;            Please select the product you want to buy.&ndash;&gt;-->
+<!--<#&#45;&#45;        </div>&ndash;&gt;-->
+<!--<#&#45;&#45;        <table class="table table-hover ">&ndash;&gt;-->
+<!--<#&#45;&#45;            <caption>Product list</caption>&ndash;&gt;-->
+<!--<#&#45;&#45;            <thead class="thead-dark">&ndash;&gt;-->
+<!--<#&#45;&#45;            <tr>&ndash;&gt;-->
+<!--<#&#45;&#45;                <th scope="col">Id</th>&ndash;&gt;-->
+<!--<#&#45;&#45;                <th scope="col">Product name</th>&ndash;&gt;-->
+<!--<#&#45;&#45;                <th scope="col">Price</th>&ndash;&gt;-->
+<!--<#&#45;&#45;            </tr>&ndash;&gt;-->
+<!--<#&#45;&#45;            </thead>&ndash;&gt;-->
+<!--<#&#45;&#45;            <tbody>&ndash;&gt;-->
+<!--<#&#45;&#45;            <#list products as product>&ndash;&gt;-->
+<!--<#&#45;&#45;                <tr>&ndash;&gt;-->
+<!--<#&#45;&#45;                    <td>&ndash;&gt;-->
+<!--<#&#45;&#45;                        <div>&ndash;&gt;-->
+<!--<#&#45;&#45;                            <label><input type="checkbox" value="${product.productName}"&ndash;&gt;-->
+<!--<#&#45;&#45;                                          name="productName">${product.id}</label>&ndash;&gt;-->
+<!--<#&#45;&#45;                        </div>&ndash;&gt;-->
+<!--<#&#45;&#45;                    </td>&ndash;&gt;-->
+<!--<#&#45;&#45;                    <td>${product.productName} </td>&ndash;&gt;-->
+<!--<#&#45;&#45;                    <td>${product.price}</td>&ndash;&gt;-->
+<!--<#&#45;&#45;                </tr>&ndash;&gt;-->
+<!--<#&#45;&#45;            </#list>&ndash;&gt;-->
+<!--<#&#45;&#45;        </table>&ndash;&gt;-->
+<!--<#&#45;&#45;        <input type="hidden" value="${_csrf.token}" name="_csrf">&ndash;&gt;-->
+<!--<#&#45;&#45;        <button class="btn btn-primary" type="submit">Buy</button>&ndash;&gt;-->
+<!--<#&#45;&#45;&lt;#&ndash;    </form>&ndash;&gt;&ndash;&gt;-->
+<!--<#&#45;&#45;</@p.page>&ndash;&gt;-->
