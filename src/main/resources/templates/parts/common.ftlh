@@ -1,6 +1,6 @@
 <#macro page>
     <!DOCTYPE html>
-    <html lang="en">
+    <html ng-app="TestApp">
     <head>
         <meta charset="UTF-8">
 
@@ -10,10 +10,11 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
               integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
               crossorigin="anonymous">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans"/>
         <title>TKO-Inform shop</title>
         <link rel="stylesheet" href="/static/css/style.css">
     </head>
-    <body>
+    <body ng-controller="testController">
     <#include "navbar.ftlh">
     <div class="container mt-5">
         <#nested>
@@ -39,10 +40,15 @@
             crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js">
     </script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular-messages.js">
+    <script data-require="angular.js@1.2.21" data-semver="1.2.21"
+            src="https://code.angularjs.org/1.2.21/angular.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js">
     </script>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-smart-table/2.1.8/smart-table.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular-messages.js"></script>
     <script src="../static/js/app.js">
+    </script>
+    <script src="../static/js/table.js">
     </script>
     </body>
     </html>

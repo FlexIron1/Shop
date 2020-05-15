@@ -13,7 +13,6 @@ validationApp.controller('mainController', function($scope) {
         }
     };
 });
-
 ngModel.$validators.validCharacters = function(modelValue, viewValue) {
     var value = modelValue || viewValue;
     return /[0-9]+/.test(value) &&

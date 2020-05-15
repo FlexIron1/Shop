@@ -27,9 +27,8 @@
         <button class="btn btn-dark btn-sm" type="submit" ng-disabled="userForm.$invalid"><#if isRegisterForm>Create<#else>Sign In</#if></button>
                 </form>
             </div>
-            <script src="../static/js/app.js">
-            </script>
-        </#macro>
+
+                </#macro>
 <#macro logout>
     <form action="/logout" method="post">
         <input type="hidden" name="_csrf" value="${_csrf.token}"/>
